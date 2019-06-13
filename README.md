@@ -1,0 +1,1 @@
+Hospital app providing basic functionality for the digitalizing public hospitals
