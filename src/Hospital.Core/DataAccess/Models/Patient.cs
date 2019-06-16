@@ -9,8 +9,6 @@ namespace Hospital.Core.DataAccess.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public IList<PatientSummary> PatientSummaries { get; set; }
-
         public static void Build(ModelBuilder modelBuilder)
         {
             EntityTypeBuilder<Patient> entityTypeBuilder = modelBuilder.Entity<Patient>();

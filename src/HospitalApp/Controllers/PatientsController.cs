@@ -23,7 +23,7 @@ namespace HospitalApp.Controllers
             return Ok(doctors);
         }
 
-        [HttpGet("id:int")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
             var patient = await _patientsManager.GetById(id);
@@ -43,6 +43,5 @@ namespace HospitalApp.Controllers
             await _patientsManager.Delete(id);
             return NoContent();
         }
-
     }
 }

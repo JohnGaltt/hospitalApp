@@ -12,7 +12,6 @@ namespace Hospital.Core.DataAccess.Models
         public string Position { get; set; }
 
         public Department Department { get; set; }
-        public IList<PatientSummary> PatientSummaries { get; set; }
 
         public static void Build(ModelBuilder modelBuilder)
         {

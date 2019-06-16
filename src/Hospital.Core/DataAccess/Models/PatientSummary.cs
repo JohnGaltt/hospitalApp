@@ -18,7 +18,7 @@ namespace Hospital.Core.DataAccess.Models
             EntityTypeBuilder<PatientSummary> entityTypeBuilder = modelBuilder.Entity<PatientSummary>();
             entityTypeBuilder.ToTable("patientsummaries");
             entityTypeBuilder.HasKey(x => x.Id);
-            entityTypeBuilder.Property(x => x.Conclusion).IsRequired().HasMaxLength(128);
+            entityTypeBuilder.Property(x => x.Conclusion).IsRequired().HasMaxLength(1024);
             entityTypeBuilder.HasOne(x => x.Doctor).WithMany().HasForeignKey(x => x.DoctorId);
             entityTypeBuilder.HasOne(x => x.Patient).WithMany().HasForeignKey(x => x.PatientId);
         }

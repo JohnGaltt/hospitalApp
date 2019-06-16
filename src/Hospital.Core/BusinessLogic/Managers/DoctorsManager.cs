@@ -28,7 +28,7 @@ namespace Hospital.Core.BusinessLogic
         public async Task Delete(int id)
         {
             var doctor = await _hospitalDbContext.Doctors.FirstOrDefaultAsync(x => x.Id == id);
-            if(doctor != null)
+            if(doctor is null)
             {
                 throw new NotImplementedException();
             }
@@ -46,7 +46,7 @@ namespace Hospital.Core.BusinessLogic
 
         public async Task<Doctor> GetById(int id)
         {
-            var doctor = await _hospitalDbContext.Doctors.FirstOrDefaultAsync(x => x.Id == id);
+            var doctor = await _hospitalDbContext.Doctors.Include(x=>x.Department).FirstOrDefaultAsync(x => x.Id == id);
             if(doctor is null)
             {
                 throw new NotImplementedException();

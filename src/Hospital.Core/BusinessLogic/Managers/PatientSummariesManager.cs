@@ -40,14 +40,20 @@ namespace Hospital.Core.BusinessLogic.Managers
         public async Task<IEnumerable<PatientSummary>> Get()
         {
             var patientSummaries = _hospitalDbContext.PatientSummaries.AsQueryable();
-            var result = await patientSummaries.ToListAsync();
+            var result = await patientSummaries
+                .Include(x=>x.Doctor)
+                .Include(x=>x.Patient).ToListAsync();
 
             return result;
         }
 
         public async Task<PatientSummary> GetById(int id)
         {
-            var patientSummary = await _hospitalDbContext.PatientSummaries.FirstOrDefaultAsync(x => x.Id == id);
+            var patientSummary = await _hospitalDbContext.PatientSummaries
+                .Include(x=>x.Patient)
+                .Include(x=>x.Doctor)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
             if (patientSummary is null)
             {
                 throw new NotImplementedException();

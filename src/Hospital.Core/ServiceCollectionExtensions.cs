@@ -3,6 +3,7 @@ using Hospital.Core.BusinessLogic.Managers;
 using Hospital.Core.BusinessLogic.Managers.Abstractions;
 using Hospital.Core.DataAccess;
 using Hospital.Core.DataAccess.Extensions;
+using Hospital.Core.Swagger;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,6 +16,7 @@ namespace Hospital.Core
     {
         public static IServiceCollection AddCoreIntegrations(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddCustomSwagger("Hospital API");
             services.AddApplicationDbContext<HospitalDbContext>(configuration.GetSection("Database").Get<DatabaseSettings>());
 
             services.AddTransient<IDoctorsManager, DoctorsManager>();
