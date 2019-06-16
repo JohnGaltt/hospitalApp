@@ -7,41 +7,42 @@ namespace HospitalApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DoctorsController : ControllerBase
+    public class PatientsController : ControllerBase
     {
-        private readonly IDoctorsManager _doctorManager;
+        private readonly IPatientsManager _patientsManager;
 
-        public DoctorsController(IDoctorsManager doctorManager)
+        public PatientsController(IPatientsManager patientsManager)
         {
-            _doctorManager = doctorManager;
+            _patientsManager = patientsManager;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var doctors = await _doctorManager.Get();
+            var doctors = await _patientsManager.Get();
             return Ok(doctors);
         }
 
         [HttpGet("id:int")]
         public async Task<IActionResult> GetById(int id)
         {
-            var doctor = await _doctorManager.GetById(id);
-            return Ok(doctor);
+            var patient = await _patientsManager.GetById(id);
+            return Ok(patient);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Doctor doctor)
+        public async Task<IActionResult> Create(Patient patient)
         {
-            var newDoctor = await _doctorManager.Create(doctor);
-            return Ok(newDoctor);
+            var newPatient = await _patientsManager.Create(patient);
+            return Ok(patient);
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            await _doctorManager.Delete(id);
+            await _patientsManager.Delete(id);
             return NoContent();
         }
+
     }
 }

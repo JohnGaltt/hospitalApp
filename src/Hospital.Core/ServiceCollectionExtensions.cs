@@ -1,4 +1,5 @@
 ﻿using Hospital.Core.BusinessLogic;
+using Hospital.Core.BusinessLogic.Managers;
 using Hospital.Core.BusinessLogic.Managers.Abstractions;
 using Hospital.Core.DataAccess;
 using Hospital.Core.DataAccess.Extensions;
@@ -17,6 +18,8 @@ namespace Hospital.Core
             services.AddApplicationDbContext<HospitalDbContext>(configuration.GetSection("Database").Get<DatabaseSettings>());
 
             services.AddTransient<IDoctorsManager, DoctorsManager>();
+            services.AddTransient<IPatientsManager, PatientsManager>();
+            services.AddTransient<IPatientSummariesManager, PatientSummariesManager>();
 
             return services;
         }

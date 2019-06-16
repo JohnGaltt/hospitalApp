@@ -31,12 +31,15 @@ namespace Hospital.Core.DataAccess
 
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<PatientSummary> PatientSummaries { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             ChangeNamesToLowerCase(modelBuilder);
             Doctor.Build(modelBuilder);
             Department.Build(modelBuilder);
+            Patient.Build(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }

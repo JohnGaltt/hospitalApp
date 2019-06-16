@@ -19,7 +19,7 @@ namespace Hospital.Core.BusinessLogic
         }
         public async Task<Doctor> Create(Doctor doctor)
         {
-            await _hospitalDbContext.AddAsync(doctor);
+            await _hospitalDbContext.Doctors.AddAsync(doctor);
             await _hospitalDbContext.SaveChangesAsync();
 
             return doctor;
