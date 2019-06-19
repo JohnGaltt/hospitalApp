@@ -33,6 +33,7 @@ namespace Hospital.Core.DataAccess
         public DbSet<Department> Departments { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<PatientSummary> PatientSummaries { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -40,6 +41,7 @@ namespace Hospital.Core.DataAccess
             Doctor.Build(modelBuilder);
             Department.Build(modelBuilder);
             Patient.Build(modelBuilder);
+            Appointment.Build(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }
