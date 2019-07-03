@@ -1,7 +1,7 @@
 Hospital app providing basic functionality for the digitalizing public hospitals.
 
-Postgres for SQL DB.
+<h3> Postgres for SQL DB. </h3>
 
-.NET CORE 2.2 for API
+<h3> .NET CORE 2.2 for API </h3>
 
-Third-party for PDF print feature
+<h3> Third-party for PDF print feature </h3>
