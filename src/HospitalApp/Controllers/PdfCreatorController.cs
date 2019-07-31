@@ -16,7 +16,7 @@ namespace HospitalApp.Controllers
         private readonly IPatientSummariesManager _patientSummariesManager;
         public PdfCreatorController(IConverter converter, IPatientSummariesManager patientSummariesManager)
         {
-            _converter = onverter;
+            _converter = converter;
             _patientSummariesManager = patientSummariesManager;
         }
 
