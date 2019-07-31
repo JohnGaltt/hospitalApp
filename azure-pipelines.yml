@@ -15,7 +15,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet restore
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore' 
+    projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: Build
@@ -27,7 +30,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: test
-    projects: '**/*Tests/*.csproj'
+    projects: '**/**/HospitalTests.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 
