@@ -27,7 +27,7 @@ namespace Hospital.Core.BusinessLogic.Managers
 
         public async Task Delete(int id)
         {
-            var patient = await _hospitalDbContext.Patients.FirstOrDefaultAsync(x => x.Id == id);
+            var patien = await _hospitalDbContext.Patients.FirstOrDefaultAsync(x => x.Id == id);
             if (patient is null)
             {
                 throw new NotImplementedException();
